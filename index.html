@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>MK Fruits</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1605045535092-e4d4d79b75b6'); /* खेत जैसी फोटो */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+      padding: 20px;
+    }
+    .container {
+      background-color: rgba(0, 100, 0, 0.7);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    h1, p {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🍎 MK Fruits में आपका स्वागत है 🍌</h1>
+    <p>100% देसी और ताजे फल – खेत से सीधे आपके घर</p>
+
+    <form id="orderForm">
+      <label>आपका नाम:</label>
+      <input type="text" id="name" required>
+
+      <label>मोबाइल नंबर:</label>
+      <input type="tel" id="phone" required>
+
+      <label>पूरा पता:</label>
+      <textarea id="address" required></textarea>
+
+      <label>🍌 केला (₹20/kg):</label>
+      <select id="banana">
+        <option value="0">0 kg</option>
+        ${[...Array(10).keys()].map(i => `<option value="${i+1}">${i+1} kg</option>`).join('')}
+      </select>
+
+      <label>🍏 आंवला (₹40/kg):</label>
+      <select id="amla">
+        ${[...Array(11).keys()].map(i => `<option value="${i}">${i} kg</option>`).join('')}
+      </select>
+
+      <label>🌴 खजूर (₹40/kg):</label>
+      <select id="dates">
+        ${[...Array(11).keys()].map(i => `<option value="${i}">${i} kg</option>`).join('')}
+      </select>
+
+      <label>🍎 सेब (₹80/kg):</label>
+      <select id="apple">
+        ${[...Array(11).keys()].map(i => `<option value="${i}">${i} kg</option>`).join('')}
+      </select>
+
+      <label>🥭 आम (₹50/kg):</label>
+      <select id="mango">
+        ${[...Array(11).keys()].map(i => `<option value="${i}">${i} kg</option>`).join('')}
+      </select>
+
+      <button type="button" onclick="sendOrder()">📦 Order Now</button>
+    </form>
+  </div>
+
+  <script>
+    function sendOrder() {
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+      const banana = document.getElementById("banana").value;
+      const amla = document.getElementById("amla").value;
+      const dates = document.getElementById("dates").value;
+      const apple = document.getElementById("apple").value;
+      const mango = document.getElementById("mango").value;
+
+      const message = `🍎 MK Fruits Order:\n\n👤 नाम: ${name}\n📞 मोबाइल: ${phone}\n🏡 पता: ${address}\n\n🛒 Order:\nकेला: ${banana}kg\nआंवला: ${amla}kg\nखजूर: ${dates}kg\nसेब: ${apple}kg\nआम: ${mango}kg`;
+
+      const whatsappUrl = `https://wa.me/918078604816?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+    }
+  </script>
+</body>
+</html>

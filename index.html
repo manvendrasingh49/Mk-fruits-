@@ -1,93 +1,180 @@
-<!DOCTYPE html><html lang="hi">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MK Organic Fruits</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      font-family: sans-serif;
+      background-image: url('fruit-farm.jpg'); /* खेत/फल की फोटो */
       background-size: cover;
-      backdrop-filter: blur(3px);
-      color: #333;
-    }.container {
-  background-color: rgba(255, 255, 255, 0.9);
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 20px;
-  margin-top: 40px;
-}
+      background-position: center;
+      background-attachment: fixed;
+    }
 
-h1, h3 {
-  text-align: center;
-  color: #2e7d32;
-}
+    .overlay {
+      background: rgba(255,255,255,0.9);
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-.product {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  background-color: #f1f8e9;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
 
-.product img {
-  height: 60px;
-  width: 60px;
-  border-radius: 8px;
-  margin-right: 15px;
-}
+    h1 {
+      text-align: center;
+      color: green;
+    }
 
-.product-details {
-  flex: 1;
-}
+    .fruit-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
 
-.qty {
-  display: flex;
-  align-items: center;
-}
+    .fruit-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+    }
 
-.qty input {
-  width: 50px;
-  padding: 5px;
-  margin: 0 5px;
-  text-align: center;
-}
+    .fruit-info {
+      flex: 1;
+    }
 
-button {
-  background-color: #2e7d32;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    input[type="number"],
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+    }
 
-button:hover {
-  background-color: #1b5e20;
-}
+    button {
+      width: 100%;
+      background: green;
+      color: white;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
 
+    label {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>MK Organic Fruits</h1>
-    <h3>स्वस्थ जीवन, ताजे फलों के साथ!</h3><div class="product">
-  <img src="https://img.freepik.com/free-photo/bananas-white-background_144627-15460.jpg" alt="केला">
-  <div class="product-details">
-    <div>केला – ₹20/kg</div>
-    <div class="qty">
-      Qty: <input type="number" id="banana" min="0" value="0">
-      <button onclick="addToCart('केला', 20, 'banana')">Add</button>
+  <div class="overlay">
+    <div class="container">
+      <h1>🍎 MK Organic Fruits</h1>
+      <p style="text-align:center; color:gray;">स्वस्थ जीवन, ताजे फलों के साथ!</p>
+
+      <!-- फल Cards -->
+      <div class="fruit-card">
+        <img src="banana.jpg" alt="केला">
+        <div class="fruit-info">
+          <label>केला – ₹25/kg</label>
+          <input type="number" id="bananaQty" placeholder="कितना किलो?">
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="mango.jpg" alt="आम">
+        <div class="fruit-info">
+          <label>आम – ₹40/kg</label>
+          <input type="number" id="mangoQty" placeholder="कितना किलो?">
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="khajur.jpg" alt="खजूर">
+        <div class="fruit-info">
+          <label>खजूर – ₹40/kg</label>
+          <input type="number" id="khajurQty" placeholder="कितना किलो?">
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="amla.jpg" alt="आंवला">
+        <div class="fruit-info">
+          <label>आंवला – ₹40/kg</label>
+          <input type="number" id="amlaQty" placeholder="कितना किलो?">
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="apple.jpg" alt="सेब">
+        <div class="fruit-info">
+          <label>सेब – ₹80/kg</label>
+          <input type="number" id="appleQty" placeholder="कितना किलो?">
+        </div>
+      </div>
+
+      <!-- ग्राहक की जानकारी -->
+      <label>आपका नाम:</label>
+      <input type="text" id="name" placeholder="नाम">
+
+      <label>मोबाइल नंबर:</label>
+      <input type="text" id="mobile" placeholder="10-digit नंबर">
+
+      <label>पूरा पता:</label>
+      <textarea id="address" rows="3" placeholder="गांव, शहर, ज़िला..."></textarea>
+
+      <!-- Order बटन -->
+      <button onclick="sendOrder()">📦 Order भेजें WhatsApp पर</button>
     </div>
   </div>
-</div>
 
-<div class="product">
-  <img src="https://img.freepik.com/free-photo/fresh-mango-white-background_144627-16338.jpg" alt="आम">
-  <div class="product
+  <script>
+    function sendOrder() {
+      const name = document.getElementById("name").value;
+      const mobile = document.getElementById("mobile").value;
+      const address = document.getElementById("address").value;
 
+      const banana = document.getElementById("bananaQty").value;
+      const mango = document.getElementById("mangoQty").value;
+      const khajur = document.getElementById("khajurQty").value;
+      const amla = document.getElementById("amlaQty").value;
+      const apple = document.getElementById("appleQty").value;
+
+      if (!name || !mobile || !address) {
+        alert("कृपया नाम, नंबर और पता भरें");
+        return;
+      }
+
+      let order = "";
+      if (banana) order += `केला: ${banana}kg%0A`;
+      if (mango) order += `आम: ${mango}kg%0A`;
+      if (khajur) order += `खजूर: ${khajur}kg%0A`;
+      if (amla) order += `आंवला: ${amla}kg%0A`;
+      if (apple) order += `सेब: ${apple}kg%0A`;
+
+      if (!order) {
+        alert("कृपया कोई फल चुनें");
+        return;
+      }
+
+      const msg = `🍎 Order Details%0A--------------------%0A${order}--------------------%0AName: ${name}%0AMobile: ${mobile}%0AAddress: ${address}`;
+      window.open(`https://wa.me/918078604816?text=${msg}`, "_blank");
+    }
+  </script>
+</body>
+</html>
